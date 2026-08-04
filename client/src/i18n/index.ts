@@ -4,9 +4,13 @@ import en from "./locales/en.json";
 import zh from "./locales/zh.json";
 
 function getSavedLanguage() {
-  const saved = localStorage.getItem("lang");
-  if (saved && ["zh", "en"].includes(saved)) {
-    return saved;
+  try {
+    const saved = JSON.parse(localStorage.getItem("language") ?? "");
+    if (saved === "zh" || saved === "en") {
+      return saved;
+    }
+  } catch {
+    // 忽略损坏的值
   }
   const browserLang = navigator.language.toLowerCase();
   return browserLang.startsWith("zh") ? "zh" : "en";
