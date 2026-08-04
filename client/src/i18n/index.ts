@@ -10,7 +10,7 @@ function getSavedLanguage() {
       return saved;
     }
   } catch {
-    // 忽略损坏的值
+    // ignore
   }
   const browserLang = navigator.language.toLowerCase();
   return browserLang.startsWith("zh") ? "zh" : "en";
