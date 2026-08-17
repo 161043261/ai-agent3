@@ -1,6 +1,6 @@
 import { resolve } from "node:path";
-import pino from "pino";
 import dotenv from "dotenv";
+import pino from "pino";
 
 dotenv.config({ path: resolve(process.cwd(), ".env") });
 
@@ -42,9 +42,8 @@ export interface RagConfig {
   dimension: number;
 }
 
-export interface AiConfig {
+export interface OpenaiConfig {
   mode_name: string;
-  base_url: string;
 }
 
 export interface Config {
@@ -53,7 +52,7 @@ export interface Config {
   mysql: MysqlConfig;
   jwt: JwtConfig;
   rag: RagConfig;
-  ai: AiConfig;
+  openai: OpenaiConfig;
 }
 
 const config: Config = {
@@ -91,9 +90,8 @@ const config: Config = {
     docs_dir: process.env.RAG_DOCS_DIR || "./docs",
     dimension: Number.parseInt(process.env.RAG_DIMENSION || "1024", 10),
   },
-  ai: {
-    mode_name: process.env.AI_MODE_NAME || "qwen3",
-    base_url: process.env.AI_BASE_URL || "http://localhost:11434",
+  openai: {
+    mode_name: process.env.OPENAI_MODE_NAME || "qwen3",
   },
 };
 

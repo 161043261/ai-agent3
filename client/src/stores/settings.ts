@@ -33,5 +33,5 @@ export const languageAtom = atomWithStorage<string>("language", "zh");
 
 export const modelAtom = atomWithStorage<ModelType>(
   "swifty_chatbot_model",
-  MODELS.OLLAMA_MODEL,
+  MODELS.OPENAI_MODEL,
 );

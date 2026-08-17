@@ -1,7 +1,7 @@
 {
   "name": "server",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.0",
+  "private": true,
   "main": "dist/main.js",
   "type": "module",
   "scripts": {
@@ -12,9 +12,8 @@
     "check": "biome check --write"
   },
   "keywords": [],
-  "author": "",
+  "author": "https://github.com/hangtiancheng",
   "license": "MIT",
-  "packageManager": "pnpm@10.28.0",
   "dependencies": {
     "@koa/bodyparser": "^6.1.0",
     "@koa/cors": "^5.0.0",
@@ -23,7 +22,7 @@
     "@langchain/classic": "^1.0.34",
     "@langchain/community": "^1.1.29",
     "@langchain/core": "^1.1.48",
-    "@langchain/ollama": "^1.2.7",
+    "@langchain/openai": "^1.5.8",
     "@langchain/textsplitters": "^1.0.1",
     "axios": "^1.17.0",
     "crc-32": "^1.2.2",
@@ -47,7 +46,6 @@
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-typescript": "^12.3.0",
-    "rollup": "^4.61.1",
     "@types/ioredis": "^5.0.0",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/koa": "^3.0.3",
@@ -59,6 +57,7 @@
     "@types/node": "^25.9.2",
     "@typescript-eslint/eslint-plugin": "^8.60.1",
     "@typescript-eslint/parser": "^8.60.1",
+    "rollup": "^4.61.1",
     "tsx": "^4.22.4",
     "typescript": "^5.9.3"
   }

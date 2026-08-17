@@ -28,7 +28,7 @@ function AiChat() {
   const [currentMessages, setCurrentMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
   const [selectedModel, setSelectedModel] = useState<ModelType>(
-    MODELS.OLLAMA_MODEL,
+    MODELS.OPENAI_MODEL,
   );
   const [isStreaming, setIsStreaming] = useState(false);
   const [fetchHistorySessionId, setFetchHistorySessionId] = useState<

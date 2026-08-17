@@ -90,9 +90,9 @@ function ChatHeader({
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              <SelectItem value={MODELS.OLLAMA_MODEL}>Ollama</SelectItem>
-              <SelectItem value={MODELS.OLLAMA_RAG_MODEL}>
-                Ollama with RAG
+              <SelectItem value={MODELS.OPENAI_MODEL}>OpenAI</SelectItem>
+              <SelectItem value={MODELS.OPENAI_RAG_MODEL}>
+                OpenAI with RAG
               </SelectItem>
             </SelectGroup>
           </SelectContent>

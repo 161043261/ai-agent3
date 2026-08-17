@@ -1,6 +1,6 @@
-import crc32 from "crc-32";
 import { copyFileSync, mkdirSync, readFileSync, unlinkSync } from "node:fs";
 import { extname, join } from "node:path";
+import crc32 from "crc-32";
 import { logger } from "../config";
 import { validateFile } from "../utils/fs";
 

@@ -18,7 +18,7 @@ async function loadDataFromDb(): Promise<void> {
         const aiAgent = manager.getOrCreateAiAgent(
           msg.username,
           msg.session_id,
-          ModelType.OLLAMA_MODEL,
+          ModelType.OPENAI_MODEL,
           {},
         );
         aiAgent.addMessage(msg.content, msg.username, msg.is_user, false);

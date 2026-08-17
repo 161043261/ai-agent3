@@ -1,15 +1,15 @@
 import { type BaseMessage, HumanMessage } from "@langchain/core/messages";
-import { ChatOllama } from "@langchain/ollama";
+import { ChatOpenAI } from "@langchain/openai";
 import { getConfig, logger } from "../config";
 import {
-  type DocumentRetriever,
   buildRagPrompt,
+  type DocumentRetriever,
   newDocumentRetriever,
 } from "../rag";
 
 export enum ModelType {
-  OLLAMA_MODEL = "ollama",
-  OLLAMA_RAG_MODEL = "ollama-rag",
+  OPENAI_MODEL = "openai",
+  OPENAI_RAG_MODEL = "openai-rag",
 }
 
 export type StreamCallback = (chunk: string) => void;
@@ -20,24 +20,23 @@ export interface AiModel {
   getModelType(): string;
 }
 
-function createOllamaLlm(): ChatOllama {
-  const cfg = getConfig().ai;
-  return new ChatOllama({
-    baseUrl: cfg.base_url,
+function createOpenAILlm(): ChatOpenAI {
+  const cfg = getConfig().openai;
+  return new ChatOpenAI({
     model: cfg.mode_name,
   });
 }
 
-// --- Ollama Model ---
-export class OllamaModel implements AiModel {
-  private llm: ChatOllama;
+// --- OpenAI Model ---
+export class OpenAIModel implements AiModel {
+  private llm: ChatOpenAI;
 
   constructor() {
-    this.llm = createOllamaLlm();
+    this.llm = createOpenAILlm();
   }
 
   getModelType(): ModelType {
-    return ModelType.OLLAMA_MODEL;
+    return ModelType.OPENAI_MODEL;
   }
 
   async response(messages: BaseMessage[]): Promise<string> {
@@ -97,18 +96,18 @@ async function ragEnhanceMessages(
   }
 }
 
-// --- Ollama RAG Model ---
-export class OllamaRagModel implements AiModel {
-  private llm: ChatOllama;
+// --- OpenAI RAG Model ---
+export class OpenAIRagModel implements AiModel {
+  private llm: ChatOpenAI;
   private username: string;
 
   constructor(username: string) {
-    this.llm = createOllamaLlm();
+    this.llm = createOpenAILlm();
     this.username = username;
   }
 
   getModelType(): ModelType {
-    return ModelType.OLLAMA_RAG_MODEL;
+    return ModelType.OPENAI_RAG_MODEL;
   }
 
   async response(messages: BaseMessage[]): Promise<string> {

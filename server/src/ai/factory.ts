@@ -1,5 +1,5 @@
 import { AiAgent } from "./agent";
-import { AiModel, ModelType, OllamaModel, OllamaRagModel } from "./model";
+import { type AiModel, ModelType, OpenAIModel, OpenAIRagModel } from "./model";
 
 export type AiModelCreator = (config: Record<string, unknown>) => AiModel;
 
@@ -7,11 +7,11 @@ export class AiModelFactory {
   private creators: Map<ModelType, AiModelCreator> = new Map();
 
   constructor() {
-    this.creators.set(ModelType.OLLAMA_MODEL, () => new OllamaModel());
-    this.creators.set(ModelType.OLLAMA_RAG_MODEL, (cfg) => {
+    this.creators.set(ModelType.OPENAI_MODEL, () => new OpenAIModel());
+    this.creators.set(ModelType.OPENAI_RAG_MODEL, (cfg) => {
       const username = String(cfg.username);
       if (!username) throw new Error("RAG model requires username");
-      return new OllamaRagModel(username);
+      return new OpenAIRagModel(username);
     });
   }
 

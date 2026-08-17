@@ -5,7 +5,7 @@
     "esbuild",
     "langchain",
     "nomic",
-    "ollama",
+    "openai",
     "qwen",
     "shiki",
     "swifty",

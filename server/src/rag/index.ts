@@ -1,17 +1,17 @@
+import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import { MemoryVectorStore } from "@langchain/classic/vectorstores/memory";
 import { Document, type DocumentInterface } from "@langchain/core/documents";
 import type { Embeddings } from "@langchain/core/embeddings";
-import { OllamaEmbeddings } from "@langchain/ollama";
+import { OpenAIEmbeddings } from "@langchain/openai";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
-import { existsSync, readdirSync, readFileSync } from "node:fs";
-import { join } from "node:path";
 import { getConfig, logger } from "../config";
 
 function createEmbeddings(): Embeddings {
   const cfg = getConfig();
-  const { ai: aiConfig, rag: ragConfig } = cfg;
+  const { openai: aiConfig, rag: ragConfig } = cfg;
 
-  return new OllamaEmbeddings({
+  return new OpenAIEmbeddings({
     baseUrl: aiConfig.base_url,
     model: ragConfig.embedding_model,
   });

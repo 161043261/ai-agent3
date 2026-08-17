@@ -42,8 +42,8 @@ export interface ChatResponse extends BaseResponse {
 }
 
 export const MODELS = {
-  OLLAMA_MODEL: "ollama",
-  OLLAMA_RAG_MODEL: "ollama-rag",
+  OPENAI_MODEL: "openai",
+  OPENAI_RAG_MODEL: "openai-rag",
 } as const;
 
 export type ModelType = (typeof MODELS)[keyof typeof MODELS];

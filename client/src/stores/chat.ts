@@ -16,7 +16,7 @@ export const tempSessionAtom = atom<boolean>(false);
 export const currentMessagesAtom = atom<Message[]>([]);
 
 // Selected model
-export const selectedModelAtom = atom<ModelType>("ollama");
+export const selectedModelAtom = atom<ModelType>("openai");
 
 // Streaming mode
 export const isStreamingAtom = atom<boolean>(false);
