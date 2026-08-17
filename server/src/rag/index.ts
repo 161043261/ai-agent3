@@ -13,7 +13,7 @@ function createEmbeddings(): Embeddings {
 
   return new OpenAIEmbeddings({
     configuration: {
-      baseURL: ragConfig.base_url
+      baseURL: ragConfig.base_url,
     },
     model: ragConfig.embedding_model,
     apiKey: ragConfig.api_key,
@@ -22,12 +22,6 @@ function createEmbeddings(): Embeddings {
 
 // --- DocumentLoader ---
 export class DocumentLoader {
-  private username: string;
-
-  constructor(username: string) {
-    this.username = username;
-  }
-
   async loadAndSplit(docsPath: string): Promise<Document[]> {
     const docs = this.loadFromDirectory(docsPath);
     if (docs.length === 0) {
@@ -94,7 +88,7 @@ export async function newDocumentRetriever(
     throw new Error(`Uploaded files not found for user ${username}`);
   }
 
-  const loader = new DocumentLoader(username);
+  const loader = new DocumentLoader();
   const docs = await loader.loadAndSplit(docsPath);
   const vectorStore = await MemoryVectorStore.fromDocuments(
     docs,

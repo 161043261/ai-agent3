@@ -9,6 +9,7 @@
     "qwen",
     "shiki",
     "swifty",
-    "textsplitters"
+    "textsplitters",
+    "vectorstores"
   ]
 }
