@@ -185,3 +185,5 @@ rules.ninja
 
 *.swp
 *.swo
+
+server/uploads
