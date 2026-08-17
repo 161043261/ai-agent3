@@ -16,6 +16,7 @@ function createEmbeddings(): Embeddings {
       baseURL: ragConfig.base_url
     },
     model: ragConfig.embedding_model,
+    apiKey: ragConfig.api_key,
   });
 }
 

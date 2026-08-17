@@ -40,6 +40,7 @@ export interface RagConfig {
   embedding_model: string;
   docs_dir: string;
   base_url: string;
+  api_key: string;
 }
 
 export interface OpenaiConfig {
@@ -89,6 +90,7 @@ const config: Config = {
     embedding_model: process.env.EMBEDDING_MODEL || "nomic-embed-text",
     docs_dir: process.env.DOCS_DIR || "./docs",
     base_url: process.env.EMBEDDING_BASE_URL || "",
+    api_key: process.env.EMBEDDING_API_KEY || "",
   },
   openai: {
     mode_name: process.env.OPENAI_MODE_NAME || "qwen3",

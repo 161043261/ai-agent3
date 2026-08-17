@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "tsx watch src/main.ts",
     "build": "rollup -c ./rollup.config.js",
+    "build:watch": "rollup -w -c ./rollup.config.js",
     "start": "node dist/main.js",
     "format": "biome format --write",
     "check": "biome check --write"
@@ -21,7 +22,7 @@
     "@koa/router": "^15.6.0",
     "@langchain/classic": "^1.0.34",
     "@langchain/community": "^1.1.29",
-    "@langchain/core": "^1.1.48",
+    "@langchain/core": "^1.2.8",
     "@langchain/openai": "^1.5.8",
     "@langchain/textsplitters": "^1.0.1",
     "axios": "^1.17.0",
