@@ -39,7 +39,6 @@ export interface JwtConfig {
 export interface RagConfig {
   embedding_model: string;
   docs_dir: string;
-  dimension: number;
   base_url: string;
 }
 
@@ -89,8 +88,7 @@ const config: Config = {
   rag: {
     embedding_model: process.env.EMBEDDING_MODEL || "nomic-embed-text",
     docs_dir: process.env.DOCS_DIR || "./docs",
-    dimension: Number.parseInt(process.env.EMBEDDING_DIMENSION || "1024", 10),
-    base_url: process.env.EMBEDDING_MODEL_BASE_URL || "",
+    base_url: process.env.EMBEDDING_BASE_URL || "",
   },
   openai: {
     mode_name: process.env.OPENAI_MODE_NAME || "qwen3",

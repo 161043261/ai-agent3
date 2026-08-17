@@ -9,7 +9,7 @@ import { getConfig, logger } from "../config";
 
 function createEmbeddings(): Embeddings {
   const cfg = getConfig();
-  const { openai, rag: ragConfig } = cfg;
+  const { rag: ragConfig } = cfg;
 
   return new OpenAIEmbeddings({
     configuration: {
