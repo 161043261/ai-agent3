@@ -42,11 +42,11 @@ function SettingsBar() {
   return (
     <div className="flex items-center gap-1">
       <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="ghost" size="sm" className="rounded-full">
-            <Languages data-icon="inline-start" />
-            <span>{language === "zh" ? "中文" : "EN"}</span>
-          </Button>
+        <DropdownMenuTrigger
+          render={<Button variant="ghost" size="sm" className="rounded-full" />}
+        >
+          <Languages data-icon="inline-start" />
+          <span>{language === "zh" ? "中文" : "EN"}</span>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuGroup>
@@ -66,15 +66,17 @@ function SettingsBar() {
       </DropdownMenu>
 
       <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="size-9 rounded-full"
-            aria-label={t("theme.system")}
-          >
-            {getThemeIcon()}
-          </Button>
+        <DropdownMenuTrigger
+          render={
+            <Button
+              variant="ghost"
+              size="icon"
+              className="size-9 rounded-full"
+              aria-label={t("theme.system")}
+            />
+          }
+        >
+          {getThemeIcon()}
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuGroup>
