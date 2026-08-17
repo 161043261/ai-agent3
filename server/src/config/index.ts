@@ -40,6 +40,7 @@ export interface RagConfig {
   embedding_model: string;
   docs_dir: string;
   dimension: number;
+  base_url: string;
 }
 
 export interface OpenaiConfig {
@@ -86,9 +87,10 @@ const config: Config = {
     key: process.env.JWT_KEY || "swifty-chatbot",
   },
   rag: {
-    embedding_model: process.env.RAG_EMBEDDING_MODEL || "nomic-embed-text",
-    docs_dir: process.env.RAG_DOCS_DIR || "./docs",
-    dimension: Number.parseInt(process.env.RAG_DIMENSION || "1024", 10),
+    embedding_model: process.env.EMBEDDING_MODEL || "nomic-embed-text",
+    docs_dir: process.env.DOCS_DIR || "./docs",
+    dimension: Number.parseInt(process.env.EMBEDDING_DIMENSION || "1024", 10),
+    base_url: process.env.EMBEDDING_MODEL_BASE_URL || "",
   },
   openai: {
     mode_name: process.env.OPENAI_MODE_NAME || "qwen3",

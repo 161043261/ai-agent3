@@ -9,10 +9,12 @@ import { getConfig, logger } from "../config";
 
 function createEmbeddings(): Embeddings {
   const cfg = getConfig();
-  const { openai: aiConfig, rag: ragConfig } = cfg;
+  const { openai, rag: ragConfig } = cfg;
 
   return new OpenAIEmbeddings({
-    baseUrl: aiConfig.base_url,
+    configuration: {
+      baseURL: ragConfig.base_url
+    },
     model: ragConfig.embedding_model,
   });
 }
