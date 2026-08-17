@@ -17,6 +17,7 @@ function createEmbeddings(): Embeddings {
     },
     model: ragConfig.embedding_model,
     apiKey: ragConfig.api_key,
+    encodingFormat: "float",
   });
 }
 
